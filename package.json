@@ -1,0 +1,28 @@
+{
+  "name": "vbot123",
+  "version": "1.0.0",
+  "description": "Vbot123 ",
+  "main": "index.js",
+  "dependencies": {
+    "bootbot": "^1.0.14",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidcp90/vbot123.git"
+  },
+  "keywords": [
+    "bot",
+    "voice123"
+  ],
+  "author": "David Camargo, Juan Colmenares, Christina Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidcp90/vbot123/issues"
+  },
+  "homepage": "https://github.com/davidcp90/vbot123#readme"
+}
