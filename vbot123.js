@@ -10,32 +10,48 @@ vBot.on('message', (payload, chat) => {
 	const text = payload.message.text;
 	console.log(`The user said: ${text}`);
 });
-vBot.hear('looking', (payload, chat) => {
-	chat.conversation((convo) => {
-		askName(convo);
-	});
+const userGreetings = [
+  'hello',
+  'Hello',
+  'hi',
+  'Hi',
+  `good morning`,
+  'Good morning',
+  'good afternoon',
+  'Good afternoon',
+  `good night`,
+  'Good night'
+  ];
+vBot.hear(userGreetings, (payload, chat) => {
+  chat.conversation((convo) => {
+    saluteAndSuggest(convo);
+  });
 });
-function askName(convo){
-  convo.ask(`What's your name?`, (payload, convo) => {
-    const text = payload.message.text;
-    convo.set('name', text);
-    convo.say(`Oh, your name is ${text}`).then(() => askFavoriteFood(convo));
+
+function saluteAndSuggest(convo){
+  convo.ask(`Hello, {{user_first_name}} This is Vbot123, how can I help you? (try, I am looking for voices)`, (payload, convo) => {
+    askVoiceType(convo);
   });
 };
 
-function askFavoriteFood(convo){
-  convo.ask(`What's your favorite food?`, (payload, convo) => {
-    const text = payload.message.text;
-    convo.set('food', text);
-    convo.say(`Got it, your favorite food is ${text}`).then(() => sendSummary(convo));
+function askVoiceType(convo){
+  convo.ask(`Great, {{user_first_name}} what type of voice are you thinking of?`, (payload, convo) => {
+    convo.set('voiceType', payload.message.text.replace(/[^a-zA-Z ]/g, "").split(" "));
+    askGender(convo);
   });
 };
 
-function sendSummary(convo){
-  convo.say(`Ok, here's what you told me about you:
-      - Name: ${convo.get('name')}
-      - Favorite Food: ${convo.get('food')}`);
-    convo.end();
+function askGender(convo){
+  convo.ask(`Cool. Any preference on Young Adult Female or Male?`, (payload, convo) => {
+    const text = payload.message.text;
+
+    if (text.indexOf('Male') !== -1 || text.indexOf('male') !== -1) {
+      convo.set('gender', 'male');
+    } else if (text.indexOf('Female') !== -1 || text.indexOf('female') !== -1) {
+      convo.set('gender', 'female');
+    }
+    convo.say('Ok, let me see what I can find for you 👍', { typing: true });
+  });
 };
 
 
