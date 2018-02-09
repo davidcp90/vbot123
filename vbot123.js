@@ -5,7 +5,10 @@ const vBot = new BootBot({
   verifyToken: 'fh7887987',
   appSecret: 'adb9e46d32c6b561456022e89f2a632f'
 });
-
+vBot.on('message', (payload, chat) => {
+	const text = payload.message.text;
+	console.log(`The user said: ${text}`);
+});
 vBot.hear('ask me something', (payload, chat) => {
 	chat.conversation((convo) => {
 		askName(convo);
