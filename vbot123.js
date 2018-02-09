@@ -8,11 +8,10 @@ const vBot = new BootBot({
 const greeting = [
   {
     locale: 'default',
-    text: `Hello {{user_first_name}}!`
+    text: `Hello, {{user_first_name}}! What can I help you with?`
   }
 ];
 vBot.setGreetingText(greeting);
-vBot.setGetStartedButton(`Hello, {{user_first_name}}! What can I help you with?`)
 /*vBot.on('message', (payload, chat) => {
 	const text = payload.message.text;
 	console.log(`The user said: ${text}`);
