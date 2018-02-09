@@ -24,13 +24,13 @@ vBot.hear(userGreetings, (payload, chat) => {
 });
 
 function saluteAndSuggest(convo){
-  convo.ask(`Hello, this is Vbot123, how can I help you? (try, I am looking for voices)`, (payload, convo) => {
+  convo.ask(`Hello, this is Vbot123 🤖, how can I help you? (try, I am looking for voices)`, (payload, convo) => {
     askVoiceType(convo);
   });
 };
 
 function askVoiceType(convo){
-  convo.ask(`Great, what type of voice are you thinking of?`, (payload, convo) => {
+  convo.ask(`🎙️ Great, what type of voice are you thinking of?`, (payload, convo) => {
     convo.set('voiceType', payload.message.text.replace(/[^a-zA-Z ]/g, "").split(" "));
     askGender(convo);
   });
@@ -44,10 +44,42 @@ function askGender(convo){
       convo.set('gender', 'male');
     } else if (text.indexOf('Female') !== -1 || text.indexOf('female') !== -1) {
       convo.set('gender', 'female');
+    } else {
+      convo.set('gender', 'mixed');
     }
     convo.say('Ok, let me see what I can find for you 👍', { typing: true });
+    const searchResults = getSearchResults(convo);
+    convo.say(`Here are some talented actors I've found:`, { typing: true });
+    searchResults.forEach(voiceactor => {
+      convo.say(voiceactor, {typing: true});
+    });
   });
 };
+
+function getSearchResults(convo) {
+    const voiceResults = {
+      female = [
+        '😉 https://beta.voice123.com/mindybaer1/?sample=1785577',
+        '😃 https://beta.voice123.com/helenmooregillon/?sample=1720736',
+        '😏 https://beta.voice123.com/naimamoussi/?sample=1776546'
+      ],
+      male = [
+        '😁 https://beta.voice123.com/javierprusky/?sample=1804050',
+        '😎 https://beta.voice123.com/geoffgundy/?sample=1821540',
+        '🤩 https://beta.voice123.com/seanchiplock/?sample=1709304'
+      ],
+      mixed = [
+        '😺 https://beta.voice123.com/charlietorovo/?sample=1794579',
+        '🙀 https://beta.voice123.com/wendybrown/?sample=1632171',
+        '😻 https://beta.voice123.com/alyssavo/?sample=1770998'
+      ]
+    };
+    return voiceResults[convo.get('gender')];
+
+}
+function getAttributes(data) {
+// https://api.beta.voice123.com/attributes/
+}
 
 
 vBot.start(8081);
