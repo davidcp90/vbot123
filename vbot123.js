@@ -17,29 +17,26 @@ const userGreetings = [
   'good afternoon',
   `good night`,
   ];
-
 vBot.hear(userGreetings, (payload, chat) => {
-  chat.getUserProfile().then((user, chat) => {
-    chat.conversation(convo, user) => {
-      saluteAndSuggest(convo, user);
-    });
+  chat.conversation((convo) => {
+    saluteAndSuggest(convo);
   });
 });
 
-function saluteAndSuggest(convo, user){
-  convo.ask(`Hello, ${user.first_name} This is Vbot123, how can I help you? (try, I am looking for voices)`, (payload, convo) => {
+function saluteAndSuggest(convo){
+  convo.ask(`Hello, this is Vbot123, how can I help you? (try, I am looking for voices)`, (payload, convo) => {
     askVoiceType(convo);
   });
 };
 
-function askVoiceType(convo, user){
-  convo.ask(`Great, ${user.first_name} what type of voice are you thinking of?`, (payload, convo) => {
+function askVoiceType(convo){
+  convo.ask(`Great, what type of voice are you thinking of?`, (payload, convo) => {
     convo.set('voiceType', payload.message.text.replace(/[^a-zA-Z ]/g, "").split(" "));
     askGender(convo);
   });
 };
 
-function askGender(convo, user){
+function askGender(convo){
   convo.ask(`Cool. Any preference on Young Adult Female or Male?`, (payload, convo) => {
     const text = payload.message.text;
 
