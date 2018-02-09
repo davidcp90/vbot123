@@ -54,7 +54,7 @@ function askGender(convo){
       convo.say(`Here are some talented actors I've found:`, { typing: true });
       searchResults.forEach(voiceactor => {
         convo.say(emojis[generateRandomInteger(0, 5)]);
-        convo.say({ attachment: 'audio', url: voiceactor}, {typing: true});
+        convo.say(voiceactor, {typing: true});
       });
       setTimeout(() => {
         convertUser(convo);
