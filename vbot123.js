@@ -49,11 +49,9 @@ function askGender(convo){
     }
     convo.say('Ok, let me see what I can find for you 👍', { typing: true });
     const searchResults = getSearchResults(convo);
-    const emojis = [😁, 😎, 🤩, 😺, 🙀, 😻]
     setTimeout(() => {
       convo.say(`Here are some talented actors I've found:`, { typing: true });
       searchResults.forEach(voiceactor => {
-        convo.say(emojis[generateRandomInteger(0, 5)]);
         convo.say(voiceactor, {typing: true});
       });
       setTimeout(() => {
@@ -75,23 +73,22 @@ function generateRandomInteger(min, max) {
 function getSearchResults(convo) {
     const voiceResults = {
       female: [
-        'https://voice123.com/mp3/demos/mindybaer1%20-%20TV%20Narration.mp3',
-        'https://voice123.com/mp3/demos/helenmooregillon%20-%20TransAtlantic.mp3',
-        'https://voice123.com/mp3/demos/naimamoussi%20-%20MEDLEY%20MANY%20PROJECTS.mp3'
+        '😉 https://beta.voice123.com/mindybaer1/?sample=1785577',
+        '😃 https://beta.voice123.com/helenmooregillon/?sample=1720736',
+        '😏 https://beta.voice123.com/naimamoussi/?sample=1776546'
       ],
       male: [
-        'https://voice123.com/mp3/demos/javierprusky%20-%20Animation%20Demo.mp3',
-        'https://voice123.com/mp3/demos/geoffgundy%20-%20Geoff%20Gundy%20Narration%20Demo.mp3',
-        'https://voice123.com/mp3/demos/seanchiplock%20-%20Sean%20Chiplock%20-%20CHARACTERANIMATION1.mp3'
+        '😁 https://beta.voice123.com/javierprusky/?sample=1804050',
+        '😎 https://beta.voice123.com/geoffgundy/?sample=1821540',
+        '🤩 https://beta.voice123.com/seanchiplock/?sample=1709304'
       ],
       mixed: [
-        'https://voice123.com/mp3/demos/charlietorovo%20-%20IT%20Company%20Promo.mp3',
-        'https://voice123.com/mp3/demos/wendybrown%20-%20Car%20Spots%20-%20NEW.mp3',
-        'https://voice123.com/mp3/demos/alyssavo%20-%20Animation%20Demo.mp3'
+        '😺 https://beta.voice123.com/charlietorovo/?sample=1794579',
+        '🙀 https://beta.voice123.com/wendybrown/?sample=1632171',
+        '😻 https://beta.voice123.com/alyssavo/?sample=1770998'
       ]
     };
     return voiceResults[convo.get('gender')];
-
 }
 function getAttributes(data) {
 // https://api.beta.voice123.com/attributes/
