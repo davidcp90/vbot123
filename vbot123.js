@@ -7,8 +7,8 @@ const vBot = new BootBot({
 });
 const greeting = [
   {
-    "locale":"default",
-    "text":"Hello {{user_first_name}}!"
+    locale: 'default',
+    text: `Hello {{user_first_name}}!`
   }
 ];
 vBot.setGreetingText(greeting);
