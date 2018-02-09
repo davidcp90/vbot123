@@ -70,9 +70,9 @@ function convertUser(convo) {
 function getSearchResults(convo) {
     const voiceResults = {
       female: [
-        '😉 https://voice123.com/mp3/demos/mindybaer1%20-%20TV%20Narration.mp3',
-        '😃 https://voice123.com/mp3/demos/helenmooregillon%20-%20TransAtlantic.mp3',
-        '😏 https://voice123.com/mp3/demos/naimamoussi%20-%20MEDLEY%20MANY%20PROJECTS.mp3'
+        'https://voice123.com/mp3/demos/mindybaer1%20-%20TV%20Narration.mp3',
+        'https://voice123.com/mp3/demos/helenmooregillon%20-%20TransAtlantic.mp3',
+        'https://voice123.com/mp3/demos/naimamoussi%20-%20MEDLEY%20MANY%20PROJECTS.mp3'
       ],
       male: [
         '😁 https://beta.voice123.com/javierprusky/?sample=1804050',
