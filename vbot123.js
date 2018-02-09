@@ -10,7 +10,7 @@ vBot.on('message', (payload, chat) => {
 	const text = payload.message.text;
 	console.log(`The user said: ${text}`);
 });
-vBot.hear('Get Started', (payload, chat) => {
+vBot.hear('looking', (payload, chat) => {
 	chat.conversation((convo) => {
 		askName(convo);
 	});
