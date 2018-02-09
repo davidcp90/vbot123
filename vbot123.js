@@ -20,7 +20,7 @@ const userGreetings = [
 
 vBot.hear(userGreetings, (payload, chat) => {
   chat.getUserProfile().then(user => {
-    chat.conversation(convo, user) => {
+    this.conversation(convo, user) => {
       saluteAndSuggest(convo, user);
     });
   });
