@@ -52,7 +52,7 @@ function askGender(convo){
     setTimeout(() => {
       convo.say(`Here are some talented actors I've found:`, { typing: true });
       searchResults.forEach(voiceactor => {
-        convo.say(voiceactor, {typing: true});
+        convo.say({ attachment: 'audio', url: voiceactor}, {typing: true});
       });
       setTimeout(() => {
         convertUser(convo);
@@ -70,9 +70,9 @@ function convertUser(convo) {
 function getSearchResults(convo) {
     const voiceResults = {
       female: [
-        '😉 https://beta.voice123.com/mindybaer1/?sample=1785577',
-        '😃 https://beta.voice123.com/helenmooregillon/?sample=1720736',
-        '😏 https://beta.voice123.com/naimamoussi/?sample=1776546'
+        '😉 https://voice123.com/mp3/demos/mindybaer1%20-%20TV%20Narration.mp3',
+        '😃 https://voice123.com/mp3/demos/helenmooregillon%20-%20TransAtlantic.mp3',
+        '😏 https://voice123.com/mp3/demos/naimamoussi%20-%20MEDLEY%20MANY%20PROJECTS.mp3'
       ],
       male: [
         '😁 https://beta.voice123.com/javierprusky/?sample=1804050',
