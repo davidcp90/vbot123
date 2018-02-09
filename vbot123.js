@@ -5,10 +5,12 @@ const vBot = new BootBot({
   verifyToken: 'fh7887987',
   appSecret: 'adb9e46d32c6b561456022e89f2a632f'
 });
-const greeting = {greeting : [ {
-  locale: "default",
-  text: `Hello, {{user_first_name}}! What can I help you with?`
-}]};
+const greeting = "greeting":[
+  {
+    "locale":"default",
+    "text":"Hello {{user_first_name}}!"
+  }
+];
 vBot.setGreetingText(greeting);
 vBot.setGetStartedButton(`Hello, {{user_first_name}}! What can I help you with?`)
 /*vBot.on('message', (payload, chat) => {
