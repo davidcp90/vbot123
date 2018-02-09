@@ -61,7 +61,7 @@ function askGender(convo){
   });
 };
 
-function convertUser(function) {
+function convertUser(convo) {
   convo.ask(`What do you think?`, (payload, convo) => {
     convo.say(`Great!, Now please post a project to have voice actors audition in http://vbot123.tk`, { typing: true });
   });
