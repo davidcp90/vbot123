@@ -58,17 +58,17 @@ function askGender(convo){
 
 function getSearchResults(convo) {
     const voiceResults = {
-      female = [
+      female: [
         '😉 https://beta.voice123.com/mindybaer1/?sample=1785577',
         '😃 https://beta.voice123.com/helenmooregillon/?sample=1720736',
         '😏 https://beta.voice123.com/naimamoussi/?sample=1776546'
       ],
-      male = [
+      male: [
         '😁 https://beta.voice123.com/javierprusky/?sample=1804050',
         '😎 https://beta.voice123.com/geoffgundy/?sample=1821540',
         '🤩 https://beta.voice123.com/seanchiplock/?sample=1709304'
       ],
-      mixed = [
+      mixed: [
         '😺 https://beta.voice123.com/charlietorovo/?sample=1794579',
         '🙀 https://beta.voice123.com/wendybrown/?sample=1632171',
         '😻 https://beta.voice123.com/alyssavo/?sample=1770998'
