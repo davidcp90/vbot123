@@ -5,19 +5,11 @@ const vBot = new BootBot({
   verifyToken: 'fh7887987',
   appSecret: 'adb9e46d32c6b561456022e89f2a632f'
 });
-vBot.setGreetingText(
-  [
-    {
-      locale: 'default',
-      text: `Hello, {{user_first_name}}! What can I help you with?`
-    }
-  ]
-);
 
-/*vBot.on('message', (payload, chat) => {
+vBot.on('message', (payload, chat) => {
 	const text = payload.message.text;
 	console.log(`The user said: ${text}`);
-});*/
+});
 vBot.hear('Get Started', (payload, chat) => {
 	chat.conversation((convo) => {
 		askName(convo);
