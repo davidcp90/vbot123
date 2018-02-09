@@ -56,7 +56,7 @@ function askGender(convo){
       });
       setTimeout(() => {
         convertUser(convo);
-      }, 30000);
+      }, 10000);
     }, 5000);
   });
 };
