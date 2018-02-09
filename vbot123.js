@@ -13,14 +13,12 @@ vBot.setGreetingText(
     }
   ]
 );
-vBot.setGetStartedButton({
-  payload: `getstarted`
-});
+
 /*vBot.on('message', (payload, chat) => {
 	const text = payload.message.text;
 	console.log(`The user said: ${text}`);
 });*/
-vBot.hear('getstarted', (payload, chat) => {
+vBot.hear('Get Started', (payload, chat) => {
 	chat.conversation((convo) => {
 		askName(convo);
 	});
