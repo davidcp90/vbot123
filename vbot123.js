@@ -37,7 +37,7 @@ function askVoiceType(convo){
 };
 
 function askGender(convo){
-  convo.ask(`Cool. Any preference on Young Adult Female or Male?`, (payload, convo) => {
+  convo.ask(`Cool. Any preference on male or female?`, (payload, convo) => {
     const text = payload.message.text;
 
     if (text.indexOf('Male') !== -1 || text.indexOf('male') !== -1) {
@@ -49,12 +49,24 @@ function askGender(convo){
     }
     convo.say('Ok, let me see what I can find for you 👍', { typing: true });
     const searchResults = getSearchResults(convo);
-    convo.say(`Here are some talented actors I've found:`, { typing: true });
-    searchResults.forEach(voiceactor => {
-      convo.say(voiceactor, {typing: true});
-    });
+    setTimeout(() => {
+      convo.say(`Here are some talented actors I've found:`, { typing: true });
+      searchResults.forEach(voiceactor => {
+        convo.say(voiceactor, {typing: true});
+      });
+      setTimeout(() => {
+        convertUser(convo);
+      }, 3000);
+    }, 5000);
   });
 };
+
+function convertUser(function) {
+  convo.ask(`What do you think?`, (payload, convo) => {
+    convo.say(`Great!, Now please post a project to have voice actors audition in http://vbot123.tk`, { typing: true });
+  });
+  convo.end();
+}
 
 function getSearchResults(convo) {
     const voiceResults = {
