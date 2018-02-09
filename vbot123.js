@@ -5,13 +5,18 @@ const vBot = new BootBot({
   verifyToken: 'fh7887987',
   appSecret: 'adb9e46d32c6b561456022e89f2a632f'
 });
-const greeting = [
-  {
-    locale: 'default',
-    text: `Hello, {{user_first_name}}! What can I help you with?`
-  }
-];
-vBot.setGreetingText(greeting);
+const greeting = ;
+vBot.setGreetingText(
+  [
+    {
+      locale: 'default',
+      text: `Hello, {{user_first_name}}! What can I help you with?`
+    }
+  ]
+);
+vBot.setGetStartedButton({
+  payload: `I'm looking for voices`
+});
 /*vBot.on('message', (payload, chat) => {
 	const text = payload.message.text;
 	console.log(`The user said: ${text}`);
