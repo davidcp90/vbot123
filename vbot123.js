@@ -17,9 +17,12 @@ const userGreetings = [
   'good afternoon',
   `good night`,
   ];
+
 vBot.hear(userGreetings, (payload, chat) => {
-  chat.getUserProfile().then(user).conversation(convo, user) => {
-    saluteAndSuggest(convo, user);
+  chat.getUserProfile().then(user => {
+    chat.conversation(convo, user) => {
+      saluteAndSuggest(convo, user);
+    });
   });
 });
 
