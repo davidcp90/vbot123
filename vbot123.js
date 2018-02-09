@@ -6,7 +6,7 @@ const vBot = new BootBot({
   appSecret: 'adb9e46d32c6b561456022e89f2a632f'
 });
 
-bot.hear('ask me something', (payload, chat) => {
+vBot.hear('ask me something', (payload, chat) => {
 	chat.conversation((convo) => {
 		askName(convo);
 	});
