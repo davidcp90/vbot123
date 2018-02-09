@@ -5,6 +5,7 @@ const vBot = new BootBot({
   verifyToken: 'fh7887987',
   appSecret: 'adb9e46d32c6b561456022e89f2a632f'
 });
+const greetingText = `Hello, {{user_first_name}}! What can I help you with?`;
 /*vBot.on('message', (payload, chat) => {
 	const text = payload.message.text;
 	console.log(`The user said: ${text}`);
