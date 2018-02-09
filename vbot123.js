@@ -12,15 +12,10 @@ vBot.on('message', (payload, chat) => {
 });
 const userGreetings = [
   'hello',
-  'Hello',
   'hi',
-  'Hi',
   `good morning`,
-  'Good morning',
   'good afternoon',
-  'Good afternoon',
   `good night`,
-  'Good night'
   ];
 vBot.hear(userGreetings, (payload, chat) => {
   chat.conversation((convo) => {
@@ -29,13 +24,13 @@ vBot.hear(userGreetings, (payload, chat) => {
 });
 
 function saluteAndSuggest(convo){
-  convo.ask(`Hello, {{user_first_name}} This is Vbot123, how can I help you? (try, I am looking for voices)`, (payload, convo) => {
+  convo.ask(`Hello, ${user_first_name} This is Vbot123, how can I help you? (try, I am looking for voices)`, (payload, convo) => {
     askVoiceType(convo);
   });
 };
 
 function askVoiceType(convo){
-  convo.ask(`Great, {{user_first_name}} what type of voice are you thinking of?`, (payload, convo) => {
+  convo.ask(`Great, ${user_first_name} what type of voice are you thinking of?`, (payload, convo) => {
     convo.set('voiceType', payload.message.text.replace(/[^a-zA-Z ]/g, "").split(" "));
     askGender(convo);
   });
